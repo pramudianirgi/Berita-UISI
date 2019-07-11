@@ -54,9 +54,19 @@ class Berita
     /**
      * @var Kategori Kategori dari berita ini.
      *
-     * @ORM\ManyToOne(targetEntity="Kategori", inversedBy="berita")
+     * @ORM\ManyToOne(targetEntity="Kategori")
      */
     public $kategori;
+
+    public function __construct()
+    {
+        $this->tanggal = new \DateTime("now");
+    }
+
+    public function getTanggal(): ?\DateTime
+    {
+        return $this->id;
+    }
 
     public function getId(): ?int
     {
